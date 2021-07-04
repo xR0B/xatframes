@@ -36,7 +36,7 @@ function Circle(x, y, c, v, range) {
   /*this.element.style.display = 'block';*/
   this.element.style.opacity = 0;
   this.element.style.position = 'absolute';
-  this.element.style.fontSize = '20px';
+  this.element.style.fontSize = '18px';
   this.element.style.color = 'hsl(' + (Math.random() * 240 | 150) + ',50%,50%)';
   this.element.innerHTML = c;
   container.appendChild(this.element);
