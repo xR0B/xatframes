@@ -6,14 +6,13 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>OCEAN PROJECT</title>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css">
+<script src='http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
 <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
 <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
 <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
 <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
 <meta name="author" content="Robert - xat.com/DiverZone">
 <style>
-
-@import url('http://fonts.cdnfonts.com/css/mont');
 
 ::-webkit-scrollbar {  
     display: none;
@@ -29,174 +28,269 @@ html, body {
   background: url('OO.png')/*Wallpaper*/ center/cover fixed, #000
 }
 
-.bubble-toggle {
-  position: absolute;
-  top: 60px;
-  right: 10px;
-  padding: 10px;
-  background: rgba(255, 255, 255, 0.2);
-  font-family: 'Mont', sans-serif;
-  font-weight: 900;
-  font-size: 10px;
-  color: #31a7d9;
-  border-radius: 50px;
-  border: 3px solid rgba(255, 255, 255, 0.2); 
-}
-.bubble-toggle:hover {
-  background: rgba(207, 241, 255, 0.75);
-}
-
-.bubbles {
+.container {
   position: relative;
-  overflow: hidden;
-  width: 100%;
-  height: 100%;
-  margin: 0 auto;
+  top:0;
+  
+}
+.bubbles {
+  position: fixed;
+  opacity:0.8;
 }
 
-.bubble-container {
+.bubble1 {
+  position: absolute; 
+  width: 15px;
+  height: 15px;
+  background-color: rgba(255,255,255,0.2);
+  border-radius: 50%;
+  overflow:hidden;
+  animation: up 12s linear infinite;
+  top:600px;
+  left:10px;
+  
+}
+
+.bubble1:after {
+  content:"";
   position: absolute;
-  bottom: 0;
-  will-change: transform;
-  -webkit-animation: bubblerise 4s infinite ease-in;
-  -moz-animation: bubblerise 4s infinite ease-in;
-  -ms-animation: bubblerise 4s infinite ease-in;
-  animation: bubblerise 4s infinite ease-in;
-  filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=0);
-  opacity: 0;
+  background-color: rgba(255,255,255,0.4);
+  border-radius:50%;
+  width:10px;
+  height:50px;
+  left:15px;
+  top:12px;
+  transform: rotate(25deg);
+  filter: blur(8px);
 }
 
-.bubble {
-  width: 6px;
-  height: 6px;
-  margin: 0 auto;
-  border: 1px solid rgba(255, 255, 255, 0.5);
-  background: rgba(255, 255, 255, 0.25);
-  will-change: transform;
-  -moz-border-radius: 10px;
-  -webkit-border-radius: 10px;
-  border-radius: 10px;
-  -webkit-animation: bubblewobble 0.4s infinite linear;
-  -moz-animation: bubblewobble 0.4s infinite linear;
-  -ms-animation: bubblewobble 0.4s infinite linear;
-  animation: bubblewobble 0.4s infinite linear;
+.bubble2 {
+  position: absolute; 
+  width: 50px;
+  height: 50px;
+  background-color: rgba(255,255,255,0.2);
+  border-radius: 50%;
+  overflow:hidden;
+  left:800px;
+  top: 700px;
+  animation: up 16s linear infinite;
 }
 
-@-webkit-keyframes bubblerise {
-  0% {
-    bottom: 0;
-    filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=0);
-    opacity: 0;
-  }
-  5% {
-    bottom: 0;
-    filter: progid:DXImageTransform.Microsoft.Alpha(enabled=false);
-    opacity: 1;
-  }
-  99% {
-    filter: progid:DXImageTransform.Microsoft.Alpha(enabled=false);
-    opacity: 1;
-  }
-  100% {
-    bottom: 100%;
-    filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=0);
-    opacity: 0;
-  }
+.bubble2:after {
+  content:"";
+  position: absolute;
+  background-color: rgba(255,255,255,0.6);
+  border-radius:50%;
+  width:12.5px;
+  height:25px;
+  left:15px;
+  top:7px;
+  transform: rotate(25deg);
+  filter: blur(8px);
 }
-@-moz-keyframes bubblerise {
-  0% {
-    bottom: 0;
-    filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=0);
-    opacity: 0;
-  }
-  5% {
-    bottom: 0;
-    filter: progid:DXImageTransform.Microsoft.Alpha(enabled=false);
-    opacity: 1;
-  }
-  99% {
-    filter: progid:DXImageTransform.Microsoft.Alpha(enabled=false);
-    opacity: 1;
-  }
-  100% {
-    bottom: 100%;
-    filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=0);
-    opacity: 0;
-  }
+
+.bubble3 {
+  position: absolute; 
+  width: 20px;
+  height: 20px;
+  background-color: rgba(255,255,255,0.2);
+  border-radius: 50%;
+  overflow:hidden;
+  left:1200px;
+  top:800px;
+  animation: up 5s linear infinite;
 }
-@-ms-keyframes bubblerise {
-  0% {
-    bottom: 0;
-    filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=0);
-    opacity: 0;
-  }
-  5% {
-    bottom: 0;
-    filter: progid:DXImageTransform.Microsoft.Alpha(enabled=false);
-    opacity: 1;
-  }
-  99% {
-    filter: progid:DXImageTransform.Microsoft.Alpha(enabled=false);
-    opacity: 1;
-  }
-  100% {
-    bottom: 100%;
-    filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=0);
-    opacity: 0;
-  }
+
+.bubble3:after {
+  content:"";
+  position: absolute;
+  background-color: rgba(255,255,255,0.4);
+  border-radius:50%;
+  width:20px;
+  height:40px;
+  left:15px;
+  top:10px;
+  transform: rotate(25deg);
+  filter: blur(7px);
 }
-@keyframes bubblerise {
-  0% {
-    bottom: 0;
-    filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=0);
-    opacity: 0;
-  }
-  5% {
-    bottom: 0;
-    filter: progid:DXImageTransform.Microsoft.Alpha(enabled=false);
-    opacity: 1;
-  }
-  99% {
-    filter: progid:DXImageTransform.Microsoft.Alpha(enabled=false);
-    opacity: 1;
-  }
-  100% {
-    bottom: 100%;
-    filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=0);
-    opacity: 0;
-  }
+
+.bubble4 {
+  position: absolute; 
+  width: 30px;
+  height: 30px;
+  background-color: rgba(255,255,255,0.2);
+  border-radius: 50%;
+  overflow:hidden;
+  animation: up 7s linear infinite;
+  left:800px;
+  top: 700px;
 }
-@-webkit-keyframes bubblewobble {
-  0% {
-    margin-left: 0;
-  }
-  50% {
-    margin-left: 2px;
-  }
+
+.bubble4:after {
+  content:"";
+  position: absolute;
+  background-color: rgba(255,255,255,0.8);
+  border-radius:50%;
+  width:10px;
+  height:8px;
+  left:7px;
+  top:5px;
+  transform: rotate(25deg);
+  filter: blur(5px);
 }
-@-moz-keyframes bubblewobble {
-  0% {
-    margin-left: 0;
-  }
-  50% {
-    margin-left: 2px;
-  }
+
+.bubble5 {
+  position: absolute; 
+  width: 25px;
+  height: 25px;
+  background-color: rgba(255,255,255,0.2);
+  border-radius: 50%;
+  overflow:hidden;
+  left:350px;
+  top:700px;
+  animation: up 13s linear infinite;
 }
-@-ms-keyframes bubblewobble {
-  0% {
-    margin-left: 0;
-  }
-  50% {
-    margin-left: 2px;
-  }
+
+.bubble5:after {
+  content:"";
+  position: absolute;
+  background-color: rgba(255,255,255,0.4);
+  border-radius:50%;
+  width:22px;
+  height:48px;
+  left:15px;
+  top:12px;
+  transform: rotate(25deg);
+  filter: blur(7px);
 }
-@keyframes bubblewobble {
-  0% {
-    margin-left: 0;
-  }
-  50% {
-    margin-left: 2px;
-  }
+
+@keyframes up {
+  100% { transform: translateY(-1000px);} 
+}
+
+.bubble6 {
+  position: absolute; 
+  width: 30px;
+  height: 30px;
+  background-color: rgba(255,255,255,0.2);
+  border-radius: 50%;
+  overflow:hidden;
+  left:750px;
+  top:700px;
+  animation: up 15s linear infinite;
+}
+
+.bubble6:after {
+  content:"";
+  position: absolute;
+  background-color: rgba(255,255,255,0.4);
+  border-radius:50%;
+  width:22px;
+  height:48px;
+  left:15px;
+  top:12px;
+  transform: rotate(25deg);
+  filter: blur(7px);
+}
+
+.bubble7 {
+  position: absolute; 
+  width: 50px;
+  height: 50px;
+  background-color: rgba(255,255,255,0.2);
+  border-radius: 50%;
+  overflow:hidden;
+  left:-400px;
+  top: 700px;
+  animation: up 10s linear infinite;
+}
+
+.bubble7:after {
+  content:"";
+  position: absolute;
+  background-color: rgba(255,255,255,0.6);
+  border-radius:50%;
+  width:12.5px;
+  height:25px;
+  left:15px;
+  top:7px;
+  transform: rotate(25deg);
+  filter: blur(8px);
+}
+
+.bubble8 {
+  position: absolute; 
+  width: 80px;
+  height: 80px;
+  background-color: rgba(255,255,255,0.2);
+  box-shadow:  inset -7px -7px 15px rgba(255, 255, 255, 0.3), 5px 5px 3px rgba(0,0,0,0.07);
+  overflow:hidden;
+  left:-600px;
+  top:800px;
+  animation: up 8s linear infinite;
+}
+
+.bubble8:after {
+  content:"";
+  position: absolute;
+  background-color: rgba(255,255,255,0.4);
+  border-radius:50%;
+  width:20px;
+  height:40px;
+  left:15px;
+  top:10px;
+  transform: rotate(25deg);
+  filter: blur(7px);
+}
+
+.bubble9 {
+  position: absolute; 
+  width: 30px;
+  height: 30px;
+  background-color: rgba(255,255,255,0.2);
+  border-radius: 50%;
+  overflow:hidden;
+  animation: up 17s linear infinite;
+  left:600px;
+  top: 700px;
+}
+
+.bubble9:after {
+  content:"";
+  position: absolute;
+  background-color: rgba(255,255,255,0.8);
+  border-radius:50%;
+  width:10px;
+  height:8px;
+  left:7px;
+  top:5px;
+  transform: rotate(25deg);
+  filter: blur(5px);
+}
+
+.bubble10 {
+  position: absolute; 
+  width: 90px;
+  height: 90px;
+  background-color: rgba(255,255,255,0.2);
+  border-radius: 50%;
+  overflow:hidden;
+  left:-350px;
+  top:700px;
+  animation: up 3s linear infinite;
+}
+
+.bubble10:after {
+  content:"";
+  position: absolute;
+  background-color: rgba(255,255,255,0.4);
+  border-radius:50%;
+  width:22px;
+  height:48px;
+  left:15px;
+  top:12px;
+  transform: rotate(25deg);
+  filter: blur(7px);
 }
 </style>
 
@@ -211,107 +305,24 @@ html, body {
   }
 </script>
 
+
+</style>
 </head>
-
-
 <body translate="no">
-  <!--
-This is a *MASSIVE* CPU drain and just a bit of fun.
-I wouldn't use it on anything serious, but see it in action here: http://beeroclock.in
--->
+<div class="container">
+  <div class="bubbles">
+    <div class="bubble1"></div>
+    <div class="bubble2"></div>
+    <div class="bubble3"></div>
+    <div class="bubble4"></div>
+    <div class="bubble5"></div>
+    <div class="bubble6"></div>
+    <div class="bubble7"></div>
+    <div class="bubble8"></div>
+    <div class="bubble9"></div>
+    <div class="bubble10"></div>
+  </div>
+</div>
 
-<div class="bubbles"></div>
-<a class="bubble-toggle" href="#">BUBBLES OFF</a>
-    <script src="https://cpwebassets.codepen.io/assets/common/stopExecutionOnTimeout-1b93190375e9ccc259df3a57c1abc0e64599724ae30d7ea4c6877eb615f89387.js"></script>
-
-  <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
-      <script id="rendered-js" >
-var $bubbles = $('.bubbles');
-
-function bubbles() {
-
-  // Settings
-  var min_bubble_count = 20, // Minimum number of bubbles
-  max_bubble_count = 60, // Maximum number of bubbles
-  min_bubble_size = 3, // Smallest possible bubble diameter (px)
-  max_bubble_size = 12; // Maximum bubble blur amount (px)
-
-  // Calculate a random number of bubbles based on our min/max
-  var bubbleCount = min_bubble_count + Math.floor(Math.random() * (max_bubble_count + 1));
-
-  // Create the bubbles
-  for (var i = 0; i < bubbleCount; i++) {if (window.CP.shouldStopExecution(0)) break;
-    $bubbles.append('<div class="bubble-container"><div class="bubble"></div></div>');
-  }
-
-  // Now randomise the various bubble elements
-  window.CP.exitedLoop(0);$bubbles.find('.bubble-container').each(function () {
-
-    // Randomise the bubble positions (0 - 100%)
-    var pos_rand = Math.floor(Math.random() * 101);
-
-    // Randomise their size
-    var size_rand = min_bubble_size + Math.floor(Math.random() * (max_bubble_size + 1));
-
-    // Randomise the time they start rising (0-15s)
-    var delay_rand = Math.floor(Math.random() * 25);
-
-    // Randomise their speed (3-8s)
-    var speed_rand = 8 + Math.floor(Math.random() * 9);
-
-    // Random blur
-    var blur_rand = Math.floor(Math.random() * 2);
-
-    // Cache the this selector
-    var $this = $(this);
-
-    // Apply the new styles
-    $this.css({
-      'left': pos_rand + '%',
-
-      '-webkit-animation-duration': speed_rand + 's',
-      '-moz-animation-duration': speed_rand + 's',
-      '-ms-animation-duration': speed_rand + 's',
-      'animation-duration': speed_rand + 's',
-
-      '-webkit-animation-delay': delay_rand + 's',
-      '-moz-animation-delay': delay_rand + 's',
-      '-ms-animation-delay': delay_rand + 's',
-      'animation-delay': delay_rand + 's',
-
-      '-webkit-filter': 'blur(' + blur_rand + 'px)',
-      '-moz-filter': 'blur(' + blur_rand + 'px)',
-      '-ms-filter': 'blur(' + blur_rand + 'px)',
-      'filter': 'blur(' + blur_rand + 'px)' });
-
-
-    $this.children('.bubble').css({
-      'width': size_rand + 'px',
-      'height': size_rand + 'px' });
-
-
-  });
-}
-
-// In case users value their laptop battery life
-// Allow them to turn the bubbles off
-$('.bubble-toggle').click(function () {
-  if ($bubbles.is(':empty')) {
-    bubbles();
-    $bubbles.show();
-    $(this).text('BUBBLES OFF');
-  } else {
-    $bubbles.fadeOut(function () {
-      $(this).empty();
-    });
-    $(this).text('BUBBLES ON');
-  }
-
-  return false;
-});
-
-bubbles();
-//# sourceURL=pen.js
-    </script>
 </body>
 </html>
